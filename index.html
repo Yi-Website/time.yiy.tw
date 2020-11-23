@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://static.yiy.tw/media/logo/Yi_logo.png" type="image/x-icon">
+    <title>阿均時鐘</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <style>
+        body, html{
+            background-color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="font-family: 'Roboto Condensed', serif;">
+        <font color="#FFFFFF" size="6">
+            <center>
+                <script language="JavaScript">
+                    var Today = new Date();
+                    document.write(Today.getFullYear() + " 年 " + (Today.getMonth() + 1) + " 月 " + Today.getDate() + " 日<p>");
+                    var now, hours, minutes, seconds, timeValue;
+                    function showtime() {
+                        now = new Date();
+                        hours = now.getHours();
+                        minutes = now.getMinutes();
+                        seconds = now.getSeconds();
+                        timeValue = (hours >= 12) ? "下午 " : "上午 ";
+                        timeValue += ((hours > 12) ? hours - 12 : hours) + " :";
+                        timeValue += ((minutes < 10) ? " 0" : " ") + minutes + " :";
+                        timeValue += ((seconds < 10) ? " 0" : " ") + seconds + " ";
+                        clock.innerHTML = timeValue;
+                        setTimeout("showtime()", 1000);
+                    }
+
+                    showtime();
+                </script>
+
+                <body onload="showtime();">
+                    <span id='clock'></span>
+                </body>
+            </center>
+        </font>
+    </div>
+</body>
+
+</html>
